@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+	<html> 
+	<head> 
+	<style> 
+	table{border:1px solid;} 
+	</style> 
+	
+	<script> 
+	function getCategory() 
+	{ 
+	temp = document.getElementById("category").value 
+	if(temp == "inp") 
+	{ 
+	document.getElementById("doctor_name").options[0].value = "dr.pankaj" 
+	document.getElementById("doctor_name").options[0].text = "dr.pankaj" 
+	document.getElementById("doctor_name").options[1].value = "dr.santosh" 
+	document.getElementById("doctor_name").options[1].text = "dr.santosh" 
+	document.getElementById("doctor_name").options[2].text = "dr.mahati" 
+	document.getElementById("doctor_name").options[2].value = "dr.mahati" 
+	
+	} 
+	else if(temp == "outp") 
+	{ 
+	document.getElementById("doctor_name").options[0].value = "dr. phani kumar" 
+	document.getElementById("doctor_name").options[0].text = "dr. phani kumar" 
+	document.getElementById("doctor_name").options[1].value = "dr.mrunalini" 
+	document.getElementById("doctor_name").options[1].text = "dr.mrunalini" 
+	document.getElementById("doctor_name").options[2].text = " dr.parasuram" 
+	document.getElementById("doctor_name").options[2].value = "dr.parasuram" 
+	
+	} 
+	
+	} 
+	
+	function display() 
+	{ 
+	
+	days = document.getElementById("days").value 
+	name = document.getElementById("name").value 
+	email = document.getElementById("email").value 
+	category = document.getElementById("category").value 
+	mob = document.getElementById("mob").value 
+	if(days && name && email && category && mob) 
+	{ 
+	result = days*500 
+	alert("Member name = "+name+ "\n"+"Email = "+ email+"\n" +"category = "+category+"\n"+"Payable Amount = "+result ); 
+	var win = window.open("","","width=300,height=300"); 
+	win.document.write("Total amount = "+result) 
+	} 
+	else 
+	{ 
+	alert("Please enter All the Fields") 
+	} 
+	} 
+	
+	</script> 
+	</head> 
+         
+	<body style="color:green;"> 
+	<h1><b>PATIENT REGISTRATION</b></h1> 
+    
+	<form onsubmit="display()"> 
+      <center>
+
+	<table style="background:skyblue;box-shadow:10px 5px 10px"> 
+	<tr> 
+	<td><label>Customer Name</label></td> 
+	<td><input type = "text" id ="name" placeholder="Enter name"pattern="[a-zA-z]{5,}" title="characters more than 5 " required/></td> 
+	</tr> 
+	
+	<tr> 
+	<td><label>Mobile Number</label></td> 
+	<td><input type = "text" id ="mob" pattern = "[0-9]{10}" placeholder="Enter 10 digit phone no"required/></td> 
+	</tr> 
+	
+	<tr> 
+	<td><label>Email Id</label></td> 
+	<td><input type = "email" id="email" placeholder="Enter Email id"required/></td> 
+	</tr> 
+	
+	<tr> 
+	<td><label> PATIENT Category</label></td> 
+	<td><select id = "category" onchange = "getCategory()" required> 
+	<option value ="inp" selected>inpatient</option> 
+	<option value = "outp">outpatient</option> 
+	</select> 
+	</td> 
+	</tr> 
+	
+	<tr> 
+	<td><label>DOCTOR Type</label></td> 
+	<td><select id = "doctor_name" > 
+	<option value = ""></option> 
+	<option value = ""></option> 
+	<option value = ""></option> 
+	</select> 
+	</td> 
+	</tr> 
+	
+	<tr> 
+	<td><label>No of Days</label></td> 
+	<td><input id = "days" type = "number" max = "30" min = "1" placeholder="No of days" required/></td> 
+	</tr> 
+	
+	<tr> 
+	<td><input type="submit" value="Book"/></td> 
+	</tr> 
+	
+	</table> 
+</center>
+	</form> 
+
+	</body> 
+	
+	</html>
+
